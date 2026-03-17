@@ -74,8 +74,8 @@ table{width:100%;border-collapse:collapse;}
 thead tr{background:var(--surface2);}
 th{font-family:var(--mono);font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);padding:10px 14px;text-align:left;font-weight:400;border-bottom:1px solid var(--border2);white-space:nowrap;cursor:pointer;user-select:none;transition:color 0.15s;}
 th:hover{color:var(--text2);}
-th.asc::after{content:' â²';color:var(--accent);font-size:7px;}
-th.desc::after{content:' â¼';color:var(--accent);font-size:7px;}
+th.asc::after{content:' Ã¢ÂÂ²';color:var(--accent);font-size:7px;}
+th.desc::after{content:' Ã¢ÂÂ¼';color:var(--accent);font-size:7px;}
 th.nosort{cursor:default;}
 tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.1s;}
 tbody tr:last-child{border-bottom:none;}
@@ -176,8 +176,8 @@ td{padding:9px 14px;vertical-align:middle;}
     <label>Budget (calls)</label>
     <input type="number" id="budget" value="1500" min="10" max="9999" style="width:110px;">
   </div>
-  <button class="run-btn" id="runBtn" onclick="run()">â¶ Run</button>
-  <button class="csv-btn" id="csvBtn" onclick="exportCSV()" disabled>â CSV</button>
+  <button class="run-btn" id="runBtn" onclick="run()">Ã¢ÂÂ¶ Run</button>
+  <button class="csv-btn" id="csvBtn" onclick="exportCSV()" disabled>Ã¢ÂÂ CSV</button>
 </div>
 
 <div class="error" id="errorBox"></div>
@@ -192,11 +192,11 @@ td{padding:9px 14px;vertical-align:middle;}
 </div>
 
 <div class="stats" id="statsRow">
-  <div class="stat"><div class="stat-label">Fetched</div><div class="stat-value" id="sFetched">â</div><div class="stat-sub">total from API</div></div>
-  <div class="stat"><div class="stat-label">Showing</div><div class="stat-value" id="sShowing">â</div><div class="stat-sub">above threshold</div></div>
-  <div class="stat"><div class="stat-label">Avg Growth</div><div class="stat-value" id="sAvg">â</div><div class="stat-sub">followers / day</div></div>
-  <div class="stat"><div class="stat-label">Top Growth</div><div class="stat-value" id="sTop">â</div><div class="stat-sub">followers / day</div></div>
-  <div class="stat"><div class="stat-label">API Calls</div><div class="stat-value" id="sCalls">â</div><div class="stat-sub">used this run</div></div>
+  <div class="stat"><div class="stat-label">Fetched</div><div class="stat-value" id="sFetched">Ã¢ÂÂ</div><div class="stat-sub">total from API</div></div>
+  <div class="stat"><div class="stat-label">Showing</div><div class="stat-value" id="sShowing">Ã¢ÂÂ</div><div class="stat-sub">above threshold</div></div>
+  <div class="stat"><div class="stat-label">Avg Growth</div><div class="stat-value" id="sAvg">Ã¢ÂÂ</div><div class="stat-sub">followers / day</div></div>
+  <div class="stat"><div class="stat-label">Top Growth</div><div class="stat-value" id="sTop">Ã¢ÂÂ</div><div class="stat-sub">followers / day</div></div>
+  <div class="stat"><div class="stat-label">API Calls</div><div class="stat-value" id="sCalls">Ã¢ÂÂ</div><div class="stat-sub">used this run</div></div>
 </div>
 
 <div class="table-wrap" id="tableWrap">
@@ -246,7 +246,7 @@ let sortCol='dailyGrowth',sortDir='desc',currentPage=1,running=false;
 
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-function fmt(n){if(n==null||n==='')return'â';n=Number(n);if(isNaN(n))return'â';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toLocaleString();}
+function fmt(n){if(n==null||n==='')return'Ã¢ÂÂ';n=Number(n);if(isNaN(n))return'Ã¢ÂÂ';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toLocaleString();}
 function showErr(msg){const b=document.getElementById('errorBox');b.textContent=msg;b.className='error on';}
 function clearErr(){document.getElementById('errorBox').className='error';}
 function updateBudget(){
@@ -326,7 +326,7 @@ function norm(r){
   return{
     id:       r.spotifyId||r.id||r.spotify_id||r.playlistId||'',
     name:     r.name||r.playlist_name||r.title||'Unknown',
-    owner:    r.ownerData?.name||r.owner?.display_name||r.owner?.name||r.curator_name||'â',
+    owner:    r.ownerData?.name||r.owner?.display_name||r.owner?.name||r.curator_name||'Ã¢ÂÂ',
     followers:Number(r.followers?.total??r.follower_count??r.total_followers??0),
     tracks:   Number(r.track_count??r.tracks?.total??r.tracks??r.trackCount??0),
     dailyGrowth: getGrowth(r),
@@ -373,12 +373,12 @@ async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollower
   const seen=new Set();
   const now=Date.now();
   const maxAgeMs=maxAgeDays*24*60*60*1000;
-  let page=1;
+  let page=2000;
   while(results.length<target){
     if(callsUsed>=budgetLimit)break;
-    setProgress('Fetching page '+page+' â '+results.length+' of '+target+' found',results.length,target,'newest playlists first, filtering Spotify & editorial');
+    setProgress('Fetching page '+page+' Ã¢ÂÂ '+results.length+' of '+target+' found',results.length,target,'growing playlists, filtering Spotify & editorial');
     // Sort by creation date descending so newest playlists come first
-    const ep='/playlists/search?market=US&limit='+limit+'&page='+page+'&sortBy=createdAt&sortOrder=desc';
+    const ep='/playlists/search?market=US&limit='+limit+'&page='+page+'&sortBy=followers&sortOrder=asc';
     let data=null;
     try{data=await apiCall(ep);}
     catch(e){if(e.message.includes('Budget')||e.message.includes('API key')||e.message.includes('proxy'))throw e;break;}
@@ -451,8 +451,8 @@ function filterAndRender(minGOverride,maxGOverride,maxAgeDaysOverride,maxFollowe
   const gs=filtered.map(p=>p.dailyGrowth).filter(g=>g>0);
   document.getElementById('sFetched').textContent=allPlaylists.length.toLocaleString();
   document.getElementById('sShowing').textContent=filtered.length.toLocaleString();
-  document.getElementById('sAvg').textContent=gs.length?'+'+Math.round(gs.reduce((a,b)=>a+b,0)/gs.length):'â';
-  document.getElementById('sTop').textContent=gs.length?'+'+Math.round(Math.max(...gs)):'â';
+  document.getElementById('sAvg').textContent=gs.length?'+'+Math.round(gs.reduce((a,b)=>a+b,0)/gs.length):'Ã¢ÂÂ';
+  document.getElementById('sTop').textContent=gs.length?'+'+Math.round(Math.max(...gs)):'Ã¢ÂÂ';
   document.getElementById('sCalls').textContent=callsUsed;
   document.getElementById('tblMeta').textContent=filtered.length.toLocaleString()+' playlists';
   currentPage=1;renderPage();
@@ -466,8 +466,8 @@ function renderPage(){
     const rank=start+i+1;
     const bw=Math.max(2,Math.min(100,(pl.dailyGrowth/maxG)*100));
     const ageDays=pl.createdAt?Math.floor((Date.now()-pl.createdAt.getTime())/86400000):null;
-    const createdStr=pl.createdAt?pl.createdAt.toISOString().slice(0,10):'â';
-    const ageLabel=ageDays!=null?(ageDays<30?`<span style="color:var(--green)">${ageDays}d ago</span>`:ageDays<365?`<span style="color:var(--accent)">${Math.floor(ageDays/30)}mo ago</span>`:`<span style="color:var(--text3)">${Math.floor(ageDays/365)}yr ago</span>`):`<span style="color:var(--text3)">â</span>`;
+    const createdStr=pl.createdAt?pl.createdAt.toISOString().slice(0,10):'Ã¢ÂÂ';
+    const ageLabel=ageDays!=null?(ageDays<30?`<span style="color:var(--green)">${ageDays}d ago</span>`:ageDays<365?`<span style="color:var(--accent)">${Math.floor(ageDays/30)}mo ago</span>`:`<span style="color:var(--text3)">${Math.floor(ageDays/365)}yr ago</span>`):`<span style="color:var(--text3)">Ã¢ÂÂ</span>`;
     return`<tr onclick="openModal('${esc(pl.id)}')">
       <td class="td-rank">${rank}</td>
       <td class="td-name"><span class="pl-name">${esc(pl.name)}</span><span class="pl-owner">${esc(pl.owner)}</span></td>
@@ -479,17 +479,17 @@ function renderPage(){
   const empty=filtered.length===0;
   document.getElementById('emptyState').style.display=empty?'block':'none';
   const total=Math.ceil(filtered.length/PG_SIZE);
-  document.getElementById('pageInfo').textContent=filtered.length.toLocaleString()+' results â page '+currentPage+' of '+total;
+  document.getElementById('pageInfo').textContent=filtered.length.toLocaleString()+' results Ã¢ÂÂ page '+currentPage+' of '+total;
   buildPagination(currentPage,total);
 }
 
 function buildPagination(cur,total){
   const c=document.getElementById('pageBtns');c.innerHTML='';
   const add=(lbl,pg,dis,act)=>{const b=document.createElement('button');b.className='page-btn'+(act?' active':'');b.textContent=lbl;b.disabled=!!dis;if(!dis)b.onclick=()=>{currentPage=pg;renderPage();window.scrollTo(0,0);};c.appendChild(b);};
-  add('â¹',cur-1,cur===1);
+  add('Ã¢ÂÂ¹',cur-1,cur===1);
   let s=Math.max(1,cur-3),e=Math.min(total,s+6);s=Math.max(1,e-6);
   for(let p=s;p<=e;p++)add(p,p,false,p===cur);
-  add('âº',cur+1,cur===total||total===0);
+  add('Ã¢ÂÂº',cur+1,cur===total||total===0);
 }
 
 function sortBy(col){
@@ -512,7 +512,7 @@ function openModal(id){
     <div class="modal-row"><span class="modal-key">Daily Growth</span><span class="modal-val green">+${fmt(pl.dailyGrowth)} / day</span></div>
     <div class="modal-row"><span class="modal-key">Tracks</span><span class="modal-val">${fmt(pl.tracks)}</span></div>
     <div class="modal-actions">
-      <a href="${esc(pl.url)}" target="_blank" rel="noopener" class="modal-action open">Open Spotify â</a>
+      <a href="${esc(pl.url)}" target="_blank" rel="noopener" class="modal-action open">Open Spotify Ã¢ÂÂ</a>
     </div>`;
   document.getElementById('modalBackdrop').className='modal-backdrop on';
 }
