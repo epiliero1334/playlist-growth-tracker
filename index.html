@@ -337,7 +337,7 @@ async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollower
   const seen=new Set();
   const now=Date.now();
   const maxAgeMs=maxAgeDays*24*60*60*1000;
-  let page=2000;
+  let page=100;
   while(results.length<target){
     if(callsUsed>=budgetLimit)break;
     setProgress('Fetching page '+page+' - '+results.length+' of '+target+' found',results.length,target,'growing playlists, filtering Spotify & editorial');
