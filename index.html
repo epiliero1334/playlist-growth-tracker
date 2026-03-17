@@ -19,7 +19,6 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;font-size:14px;}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);}
 .wrap{max-width:1400px;margin:0 auto;padding:28px 24px;}
-
 header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border);}
 .wordmark{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;}
 .wordmark span{color:var(--text3);}
@@ -27,7 +26,6 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 .budget-bar{width:100px;height:2px;background:var(--border2);border-radius:1px;overflow:hidden;}
 .budget-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 0.4s;width:0%;}
 .budget-num{color:var(--text2);}
-
 .config{display:flex;gap:12px;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;}
 .field{display:flex;flex-direction:column;gap:6px;}
 .field label{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);}
@@ -41,7 +39,6 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 .csv-btn{height:42px;padding:0 20px;background:transparent;color:var(--green);font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(57,255,110,0.3);border-radius:4px;cursor:pointer;transition:all 0.15s;white-space:nowrap;flex-shrink:0;}
 .csv-btn:hover{background:var(--green-dim);}
 .csv-btn:disabled{opacity:0.3;cursor:not-allowed;}
-
 .progress{display:none;margin-bottom:20px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 20px;}
 .progress.on{display:block;}
 .progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
@@ -50,17 +47,14 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 .progress-track{height:2px;background:var(--border2);border-radius:1px;overflow:hidden;margin-bottom:8px;}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:1px;transition:width 0.3s;width:0%;}
 .progress-sub{font-family:var(--mono);font-size:9px;color:var(--text3);}
-
 .error{display:none;margin-bottom:16px;padding:12px 16px;background:rgba(255,59,92,0.07);border:1px solid rgba(255,59,92,0.2);border-radius:4px;font-family:var(--mono);font-size:11px;color:var(--red);line-height:1.6;}
 .error.on{display:block;}
-
 .stats{display:none;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;}
 .stats.on{display:grid;}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:14px 16px;}
 .stat-label{font-family:var(--mono);font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
 .stat-value{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent);line-height:1;}
 .stat-sub{font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:3px;}
-
 .table-wrap{display:none;background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .table-wrap.on{display:block;}
 .table-toolbar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
@@ -69,13 +63,12 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 .tbl-meta{font-family:var(--mono);font-size:10px;color:var(--text3);flex:1;}
 .enrich-all-btn{background:none;border:1px solid var(--border2);color:var(--text3);font-family:var(--mono);font-size:9px;padding:5px 10px;border-radius:3px;cursor:pointer;transition:all 0.15s;}
 .enrich-all-btn:hover{border-color:var(--accent);color:var(--accent);}
-
 table{width:100%;border-collapse:collapse;}
 thead tr{background:var(--surface2);}
 th{font-family:var(--mono);font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);padding:10px 14px;text-align:left;font-weight:400;border-bottom:1px solid var(--border2);white-space:nowrap;cursor:pointer;user-select:none;transition:color 0.15s;}
 th:hover{color:var(--text2);}
-th.asc::after{content:' Ã¢ÂÂ²';color:var(--accent);font-size:7px;}
-th.desc::after{content:' Ã¢ÂÂ¼';color:var(--accent);font-size:7px;}
+th.asc::after{content:' \25B2';color:var(--accent);font-size:7px;}
+th.desc::after{content:' \25BC';color:var(--accent);font-size:7px;}
 th.nosort{cursor:default;}
 tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.1s;}
 tbody tr:last-child{border-bottom:none;}
@@ -97,7 +90,6 @@ td{padding:9px 14px;vertical-align:middle;}
 .enrich-btn.done{color:var(--green);border-color:rgba(57,255,110,0.3);cursor:default;}
 .enrich-btn.loading{color:var(--accent);border-color:rgba(0,255,255,0.3);animation:pulse 1s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-
 .pagination{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-top:1px solid var(--border);background:var(--surface2);}
 .page-info{font-family:var(--mono);font-size:9px;color:var(--text3);}
 .page-btns{display:flex;gap:4px;}
@@ -106,7 +98,6 @@ td{padding:9px 14px;vertical-align:middle;}
 .page-btn.active{background:var(--accent-dim);border-color:rgba(0,255,255,0.3);color:var(--accent);}
 .page-btn:disabled{opacity:0.25;cursor:not-allowed;}
 .empty{text-align:center;padding:60px 20px;font-family:var(--mono);font-size:11px;color:var(--text3);}
-
 .modal-backdrop{position:fixed;inset:0;background:rgba(8,11,15,0.9);display:none;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px);}
 .modal-backdrop.on{display:flex;}
 .modal{background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:24px;width:460px;max-width:94vw;font-family:var(--mono);}
@@ -124,7 +115,6 @@ td{padding:9px 14px;vertical-align:middle;}
 .modal-action.seo{background:var(--surface2);border:1px solid var(--border2);color:var(--text2);}
 .modal-close{width:100%;margin-top:10px;background:none;border:1px solid var(--border2);color:var(--text3);font-family:var(--mono);font-size:10px;padding:8px;border-radius:4px;cursor:pointer;}
 .modal-close:hover{border-color:var(--text2);color:var(--text);}
-
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:var(--surface);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
@@ -133,7 +123,6 @@ td{padding:9px 14px;vertical-align:middle;}
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <div class="wordmark">Playlist<span>/</span>Growth</div>
   <div class="budget-display">
@@ -142,7 +131,6 @@ td{padding:9px 14px;vertical-align:middle;}
     <div class="budget-bar"><div class="budget-fill" id="budgetFill"></div></div>
   </div>
 </header>
-
 <div class="config">
   <div class="field field-key">
     <label>Artist.tools API Key</label>
@@ -166,22 +154,20 @@ td{padding:9px 14px;vertical-align:middle;}
   </div>
   <div class="field">
     <label>Min Followers</label>
-    <input type="number" id="minFollowers" value="5000" min="0" style="width:100px;" placeholder="e.g. 5000">
+    <input type="number" id="minFollowers" value="100" min="0" style="width:100px;" placeholder="e.g. 100">
   </div>
   <div class="field">
     <label>Max Followers</label>
-    <input type="number" id="maxFollowers" value="100000" min="1" style="width:100px;" placeholder="e.g. 100000">
+    <input type="number" id="maxFollowers" value="2000" min="1" style="width:100px;" placeholder="e.g. 2000">
   </div>
   <div class="field">
     <label>Budget (calls)</label>
     <input type="number" id="budget" value="1500" min="10" max="9999" style="width:110px;">
   </div>
-  <button class="run-btn" id="runBtn" onclick="run()">Ã¢ÂÂ¶ Run</button>
-  <button class="csv-btn" id="csvBtn" onclick="exportCSV()" disabled>Ã¢ÂÂ CSV</button>
+  <button class="run-btn" id="runBtn" onclick="run()">&#9654; Run</button>
+  <button class="csv-btn" id="csvBtn" onclick="exportCSV()" disabled>&#8595; CSV</button>
 </div>
-
 <div class="error" id="errorBox"></div>
-
 <div class="progress" id="progressBox">
   <div class="progress-top">
     <span class="progress-label" id="progressLabel">Fetching...</span>
@@ -190,15 +176,13 @@ td{padding:9px 14px;vertical-align:middle;}
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   <div class="progress-sub" id="progressSub"></div>
 </div>
-
 <div class="stats" id="statsRow">
-  <div class="stat"><div class="stat-label">Fetched</div><div class="stat-value" id="sFetched">Ã¢ÂÂ</div><div class="stat-sub">total from API</div></div>
-  <div class="stat"><div class="stat-label">Showing</div><div class="stat-value" id="sShowing">Ã¢ÂÂ</div><div class="stat-sub">above threshold</div></div>
-  <div class="stat"><div class="stat-label">Avg Growth</div><div class="stat-value" id="sAvg">Ã¢ÂÂ</div><div class="stat-sub">followers / day</div></div>
-  <div class="stat"><div class="stat-label">Top Growth</div><div class="stat-value" id="sTop">Ã¢ÂÂ</div><div class="stat-sub">followers / day</div></div>
-  <div class="stat"><div class="stat-label">API Calls</div><div class="stat-value" id="sCalls">Ã¢ÂÂ</div><div class="stat-sub">used this run</div></div>
+  <div class="stat"><div class="stat-label">Fetched</div><div class="stat-value" id="sFetched">-</div><div class="stat-sub">total from API</div></div>
+  <div class="stat"><div class="stat-label">Showing</div><div class="stat-value" id="sShowing">-</div><div class="stat-sub">above threshold</div></div>
+  <div class="stat"><div class="stat-label">Avg Growth</div><div class="stat-value" id="sAvg">-</div><div class="stat-sub">followers / day</div></div>
+  <div class="stat"><div class="stat-label">Top Growth</div><div class="stat-value" id="sTop">-</div><div class="stat-sub">followers / day</div></div>
+  <div class="stat"><div class="stat-label">API Calls</div><div class="stat-value" id="sCalls">-</div><div class="stat-sub">used this run</div></div>
 </div>
-
 <div class="table-wrap" id="tableWrap">
   <div class="table-toolbar">
     <input class="search-input" type="text" id="searchBox" placeholder="Filter results..." oninput="filterAndRender()">
@@ -225,9 +209,7 @@ td{padding:9px 14px;vertical-align:middle;}
     <div class="page-btns" id="pageBtns"></div>
   </div>
 </div>
-
 </div>
-
 <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()">
   <div class="modal" onclick="event.stopPropagation()">
     <h3 id="modalTitle"></h3>
@@ -235,18 +217,15 @@ td{padding:9px 14px;vertical-align:middle;}
     <button class="modal-close" onclick="closeModal()">Close</button>
   </div>
 </div>
-
 <script>
-const BASE = '/.netlify/functions/proxy';
-const PG_SIZE  = 50;
-const CACHE_TTL = 6*60*60*1000;
-
+const BASE='/.netlify/functions/proxy';
+const PG_SIZE=50;
+const CACHE_TTL=6*60*60*1000;
 let allPlaylists=[],filtered=[],callsUsed=0,budgetLimit=1500,lastCallTs=0;
 let sortCol='dailyGrowth',sortDir='desc',currentPage=1,running=false;
-
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-function fmt(n){if(n==null||n==='')return'Ã¢ÂÂ';n=Number(n);if(isNaN(n))return'Ã¢ÂÂ';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toLocaleString();}
+function fmt(n){if(n==null||n==='')return'-';n=Number(n);if(isNaN(n))return'-';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toLocaleString();}
 function showErr(msg){const b=document.getElementById('errorBox');b.textContent=msg;b.className='error on';}
 function clearErr(){document.getElementById('errorBox').className='error';}
 function updateBudget(){
@@ -262,14 +241,10 @@ function setProgress(label,count,total,sub){
   document.getElementById('progressFill').style.width=total?Math.min(100,(count/total)*100)+'%':'0%';
   document.getElementById('progressSub').textContent=sub||'';
 }
-
-// CACHE
 function saveCache(data){try{localStorage.setItem('pgt5',JSON.stringify({ts:Date.now(),data}));}catch(e){}}
 function loadCache(){try{const r=localStorage.getItem('pgt5');if(!r)return null;const o=JSON.parse(r);if(Date.now()-o.ts>CACHE_TTL){localStorage.removeItem('pgt5');return null;}return{data:o.data,age:Math.round((Date.now()-o.ts)/60000)};}catch(e){return null;}}
 function saveEnrich(id,d){try{localStorage.setItem('pgt5e_'+id,JSON.stringify({ts:Date.now(),d}));}catch(e){}}
 function loadEnrich(id){try{const r=localStorage.getItem('pgt5e_'+id);if(!r)return null;const o=JSON.parse(r);if(Date.now()-o.ts>CACHE_TTL*2){localStorage.removeItem('pgt5e_'+id);return null;}return o.d;}catch(e){return null;}}
-
-// API
 async function apiCall(path){
   if(callsUsed>=budgetLimit)throw new Error('Budget limit of '+budgetLimit+' calls reached.');
   const gap=1500-(Date.now()-lastCallTs);if(gap>0)await sleep(gap);
@@ -284,11 +259,8 @@ async function apiCall(path){
   if(!res.ok){let t='';try{t=await res.text();}catch(e){}throw new Error('HTTP '+res.status+(t?': '+t.slice(0,200):''));}
   return res.json();
 }
-
-// NORMALISE
 const GFIELDS=['daily_follower_growth','dailyGrowth','daily_growth','follower_growth_daily','follower_growth','growthRate','growth_rate','daily_followers'];
 function getGrowth(p){
-  // Actual artist.tools field
   if(p.followers?.avgDaily!=null)return Number(p.followers.avgDaily)||0;
   if(p.growth?.daily!=null)return Number(p.growth.daily)||0;
   for(const f of GFIELDS){if(p[f]!=null){const v=Number(p[f]);if(!isNaN(v))return v;}}
@@ -296,7 +268,6 @@ function getGrowth(p){
 }
 function getItems(d){
   if(!d)return[];
-  // Actual artist.tools shape: {data:{docs:[...]}}
   if(Array.isArray(d.data?.docs))return d.data.docs;
   if(Array.isArray(d.data))return d.data;
   if(Array.isArray(d.playlists))return d.playlists;
@@ -314,7 +285,6 @@ function isSpotifyOwned(r){
 }
 function isAllowedLanguage(r){
   const text=(r.name||'')+(r.description||'');
-  // Reject if more than 20% of letters are non-Latin (Arabic, CJK, Cyrillic, Devanagari, etc.)
   const nonLatin=(text.match(/[^\u0000-\u024F\s\d\p{P}]/gu)||[]).length;
   const letters=(text.match(/\p{L}/gu)||[]).length;
   if(letters===0)return true;
@@ -324,19 +294,17 @@ function norm(r){
   const rawDate=r.createdAt||r.created_at||r.dateAdded||r.publishedAt||r.creation_date||null;
   const createdAt=rawDate?new Date(rawDate):null;
   return{
-    id:       r.spotifyId||r.id||r.spotify_id||r.playlistId||'',
-    name:     r.name||r.playlist_name||r.title||'Unknown',
-    owner:    r.ownerData?.name||r.owner?.display_name||r.owner?.name||r.curator_name||'Ã¢ÂÂ',
+    id:r.spotifyId||r.id||r.spotify_id||r.playlistId||'',
+    name:r.name||r.playlist_name||r.title||'Unknown',
+    owner:r.ownerData?.name||r.owner?.display_name||r.owner?.name||r.curator_name||'-',
     followers:Number(r.followers?.total??r.follower_count??r.total_followers??0),
-    tracks:   Number(r.track_count??r.tracks?.total??r.tracks??r.trackCount??0),
-    dailyGrowth: getGrowth(r),
-    createdAt: createdAt,
-    url:      r.external_urls?.spotify||'https://open.spotify.com/playlist/'+(r.spotifyId||r.id||''),
-    enriched: false,
+    tracks:Number(r.track_count??r.tracks?.total??r.tracks??r.trackCount??0),
+    dailyGrowth:getGrowth(r),
+    createdAt:createdAt,
+    url:r.external_urls?.spotify||'https://open.spotify.com/playlist/'+(r.spotifyId||r.id||''),
+    enriched:false,
   };
 }
-
-// RUN
 async function run(){
   if(running)return;
   const key=document.getElementById('apiKey').value.trim();
@@ -348,16 +316,13 @@ async function run(){
   document.getElementById('progressBox').className='progress on';
   document.getElementById('statsRow').classList.remove('on');
   document.getElementById('tableWrap').classList.remove('on');
-  // Clear all cached data so every run is fresh
   try{Object.keys(localStorage).filter(k=>k.startsWith('pgt5')).forEach(k=>localStorage.removeItem(k));}catch(e){}
-
   const minG=parseInt(document.getElementById('minGrowth').value)||0;
   const maxG=parseInt(document.getElementById('maxGrowth').value)||Infinity;
   const target=parseInt(document.getElementById('targetResults').value)||500;
   const maxAgeDays=parseInt(document.getElementById('maxAge').value)||Infinity;
   const maxFollowers=parseInt(document.getElementById('maxFollowers').value)||Infinity;
   const minFollowers=parseInt(document.getElementById('minFollowers').value)||0;
-
   try{
     allPlaylists=await fetchAll(maxG,target,maxAgeDays,maxFollowers,minG,minFollowers);
     finish(minG,maxG,maxAgeDays,maxFollowers,minFollowers);
@@ -367,7 +332,6 @@ async function run(){
     running=false;document.getElementById('runBtn').disabled=false;
   }
 }
-
 async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollowers=Infinity,minG=0,minFollowers=0){
   const results=[],limit=50;
   const seen=new Set();
@@ -376,8 +340,7 @@ async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollower
   let page=2000;
   while(results.length<target){
     if(callsUsed>=budgetLimit)break;
-    setProgress('Fetching page '+page+' Ã¢ÂÂ '+results.length+' of '+target+' found',results.length,target,'growing playlists, filtering Spotify & editorial');
-    // Sort by creation date descending so newest playlists come first
+    setProgress('Fetching page '+page+' - '+results.length+' of '+target+' found',results.length,target,'growing playlists, filtering Spotify & editorial');
     const ep='/playlists/search?market=US&limit='+limit+'&page='+page+'&sortBy=followers&sortOrder=asc';
     let data=null;
     try{data=await apiCall(ep);}
@@ -410,7 +373,6 @@ async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollower
   results.sort((a,b)=>b.dailyGrowth-a.dailyGrowth);
   return results;
 }
-
 function finish(minG,maxG,maxAgeDays,maxFollowers,minFollowers){
   running=false;
   document.getElementById('runBtn').disabled=false;
@@ -420,8 +382,6 @@ function finish(minG,maxG,maxAgeDays,maxFollowers,minFollowers){
   document.getElementById('statsRow').classList.add('on');
   document.getElementById('tableWrap').classList.add('on');
 }
-
-// FILTER + RENDER
 function filterAndRender(minGOverride,maxGOverride,maxAgeDaysOverride,maxFollowersOverride,minFollowersOverride){
   const minG=minGOverride!=null?minGOverride:(parseInt(document.getElementById('minGrowth').value)||0);
   const maxG=maxGOverride!=null?maxGOverride:(parseInt(document.getElementById('maxGrowth').value)||Infinity);
@@ -451,13 +411,12 @@ function filterAndRender(minGOverride,maxGOverride,maxAgeDaysOverride,maxFollowe
   const gs=filtered.map(p=>p.dailyGrowth).filter(g=>g>0);
   document.getElementById('sFetched').textContent=allPlaylists.length.toLocaleString();
   document.getElementById('sShowing').textContent=filtered.length.toLocaleString();
-  document.getElementById('sAvg').textContent=gs.length?'+'+Math.round(gs.reduce((a,b)=>a+b,0)/gs.length):'Ã¢ÂÂ';
-  document.getElementById('sTop').textContent=gs.length?'+'+Math.round(Math.max(...gs)):'Ã¢ÂÂ';
+  document.getElementById('sAvg').textContent=gs.length?'+'+Math.round(gs.reduce((a,b)=>a+b,0)/gs.length):'-';
+  document.getElementById('sTop').textContent=gs.length?'+'+Math.round(Math.max(...gs)):'-';
   document.getElementById('sCalls').textContent=callsUsed;
   document.getElementById('tblMeta').textContent=filtered.length.toLocaleString()+' playlists';
   currentPage=1;renderPage();
 }
-
 function renderPage(){
   const start=(currentPage-1)*PG_SIZE;
   const items=filtered.slice(start,start+PG_SIZE);
@@ -466,86 +425,47 @@ function renderPage(){
     const rank=start+i+1;
     const bw=Math.max(2,Math.min(100,(pl.dailyGrowth/maxG)*100));
     const ageDays=pl.createdAt?Math.floor((Date.now()-pl.createdAt.getTime())/86400000):null;
-    const createdStr=pl.createdAt?pl.createdAt.toISOString().slice(0,10):'Ã¢ÂÂ';
-    const ageLabel=ageDays!=null?(ageDays<30?`<span style="color:var(--green)">${ageDays}d ago</span>`:ageDays<365?`<span style="color:var(--accent)">${Math.floor(ageDays/30)}mo ago</span>`:`<span style="color:var(--text3)">${Math.floor(ageDays/365)}yr ago</span>`):`<span style="color:var(--text3)">Ã¢ÂÂ</span>`;
-    return`<tr onclick="openModal('${esc(pl.id)}')">
-      <td class="td-rank">${rank}</td>
-      <td class="td-name"><span class="pl-name">${esc(pl.name)}</span><span class="pl-owner">${esc(pl.owner)}</span></td>
-      <td><div class="growth-wrap"><div class="growth-bar-bg"><div class="growth-bar-fg" style="width:${bw}%"></div></div><span class="growth-val">+${fmt(pl.dailyGrowth)}</span></div></td>
-      <td class="td-num">${fmt(pl.followers)}</td>
-      <td class="td-num" title="${createdStr}">${ageLabel}</td>
-    </tr>`;
+    const createdStr=pl.createdAt?pl.createdAt.toISOString().slice(0,10):'-';
+    const ageLabel=ageDays!=null?(ageDays<30?'<span style="color:var(--green)">'+ageDays+'d ago</span>':ageDays<365?'<span style="color:var(--accent)">'+Math.floor(ageDays/30)+'mo ago</span>':'<span style="color:var(--text3)">'+Math.floor(ageDays/365)+'yr ago</span>'):'<span style="color:var(--text3)">-</span>';
+    return'<tr onclick="openModal(\''+esc(pl.id)+'\')"><td class="td-rank">'+rank+'</td><td class="td-name"><span class="pl-name">'+esc(pl.name)+'</span><span class="pl-owner">'+esc(pl.owner)+'</span></td><td><div class="growth-wrap"><div class="growth-bar-bg"><div class="growth-bar-fg" style="width:'+bw+'%"></div></div><span class="growth-val">+'+fmt(pl.dailyGrowth)+'</span></div></td><td class="td-num">'+fmt(pl.followers)+'</td><td class="td-num" title="'+createdStr+'">'+ageLabel+'</td></tr>';
   }).join('');
   const empty=filtered.length===0;
   document.getElementById('emptyState').style.display=empty?'block':'none';
   const total=Math.ceil(filtered.length/PG_SIZE);
-  document.getElementById('pageInfo').textContent=filtered.length.toLocaleString()+' results Ã¢ÂÂ page '+currentPage+' of '+total;
+  document.getElementById('pageInfo').textContent=filtered.length.toLocaleString()+' results - page '+currentPage+' of '+total;
   buildPagination(currentPage,total);
 }
-
 function buildPagination(cur,total){
   const c=document.getElementById('pageBtns');c.innerHTML='';
   const add=(lbl,pg,dis,act)=>{const b=document.createElement('button');b.className='page-btn'+(act?' active':'');b.textContent=lbl;b.disabled=!!dis;if(!dis)b.onclick=()=>{currentPage=pg;renderPage();window.scrollTo(0,0);};c.appendChild(b);};
-  add('Ã¢ÂÂ¹',cur-1,cur===1);
+  add('<',cur-1,cur===1);
   let s=Math.max(1,cur-3),e=Math.min(total,s+6);s=Math.max(1,e-6);
   for(let p=s;p<=e;p++)add(p,p,false,p===cur);
-  add('Ã¢ÂÂº',cur+1,cur===total||total===0);
+  add('>',cur+1,cur===total||total===0);
 }
-
 function sortBy(col){
   sortDir=(sortCol===col&&sortDir==='desc')?'asc':'desc';sortCol=col;
   document.querySelectorAll('th[onclick]').forEach(th=>th.className=th.className.replace(/ (asc|desc)/g,''));
   const th=document.getElementById('th-'+col);if(th)th.className+=' '+sortDir;
   currentPage=1;filterAndRender();
 }
-
-// ENRICH
-
-
-// MODAL
 function openModal(id){
   const pl=allPlaylists.find(p=>p.id===id);if(!pl)return;
   document.getElementById('modalTitle').textContent=pl.name;
-  document.getElementById('modalBody').innerHTML=`
-    <div class="modal-row"><span class="modal-key">Owner</span><span class="modal-val">${esc(pl.owner)}</span></div>
-    <div class="modal-row"><span class="modal-key">Followers</span><span class="modal-val green">${fmt(pl.followers)}</span></div>
-    <div class="modal-row"><span class="modal-key">Daily Growth</span><span class="modal-val green">+${fmt(pl.dailyGrowth)} / day</span></div>
-    <div class="modal-row"><span class="modal-key">Tracks</span><span class="modal-val">${fmt(pl.tracks)}</span></div>
-    <div class="modal-actions">
-      <a href="${esc(pl.url)}" target="_blank" rel="noopener" class="modal-action open">Open Spotify Ã¢ÂÂ</a>
-    </div>`;
+  document.getElementById('modalBody').innerHTML='<div class="modal-row"><span class="modal-key">Owner</span><span class="modal-val">'+esc(pl.owner)+'</span></div><div class="modal-row"><span class="modal-key">Followers</span><span class="modal-val green">'+fmt(pl.followers)+'</span></div><div class="modal-row"><span class="modal-key">Daily Growth</span><span class="modal-val green">+'+fmt(pl.dailyGrowth)+' / day</span></div><div class="modal-row"><span class="modal-key">Tracks</span><span class="modal-val">'+fmt(pl.tracks)+'</span></div><div class="modal-actions"><a href="'+esc(pl.url)+'" target="_blank" rel="noopener" class="modal-action open">Open Spotify &#8599;</a></div>';
   document.getElementById('modalBackdrop').className='modal-backdrop on';
 }
 function closeModal(){document.getElementById('modalBackdrop').className='modal-backdrop';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-
-// CSV
 function exportCSV(){
   const h=['Rank','Playlist Name','Owner','Daily Growth /day','Followers','Created Date','Spotify URL'];
-  const rows=filtered.map((pl,i)=>[
-    i+1,
-    '"'+(pl.name||'').replace(/"/g,'""')+'"',
-    '"'+(pl.owner||'').replace(/"/g,'""')+'"',
-    pl.dailyGrowth,
-    pl.followers,
-    pl.createdAt?pl.createdAt.toISOString().slice(0,10):'',
-    pl.url
-  ].join(','));
+  const rows=filtered.map((pl,i)=>[i+1,'"'+(pl.name||'').replace(/"/g,'""')+'"','"'+(pl.owner||'').replace(/"/g,'""')+'"',pl.dailyGrowth,pl.followers,pl.createdAt?pl.createdAt.toISOString().slice(0,10):'',pl.url].join(','));
   const csv=[h.join(','),...rows].join('\n');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
   a.download='playlist-growth-'+new Date().toISOString().slice(0,10)+'.csv';
   a.click();
 }
-
-
-
-
-
-
-
-
-
 window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('th-dailyGrowth').className+=' desc';
 });
