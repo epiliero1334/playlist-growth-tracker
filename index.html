@@ -313,7 +313,7 @@ function loadEnrich(id){try{const r=localStorage.getItem('pgt5e_'+id);if(!r)retu
 // API
 async function apiCall(path){
   if(callsUsed>=budgetLimit)throw new Error('Budget limit of '+budgetLimit+' calls reached.');
-  const gap=1500-(Date.now()-lastCallTs);if(gap>0)await sleep(gap);
+  const gap=2000-(Date.now()-lastCallTs);if(gap>0)await sleep(gap);
   lastCallTs=Date.now();
   const key=document.getElementById('apiKey').value.trim();
   dlog('dl-call','&rarr; GET '+path);
@@ -321,7 +321,7 @@ async function apiCall(path){
   try{res=await fetch(BASE+path,{headers:{'x-api-key':key,'Accept':'application/json'}});}
   catch(e){dlog('dl-err','&times; Request failed: '+e.message);throw new Error('Request failed: '+e.message);}
   callsUsed++;updateBudget();
-  if(res.status===429){dlog('dl-err','&times; Rate limited (429) - waiting 5s');await sleep(5000);callsUsed--;return apiCall(path);}
+  if(res.status===429){dlog('dl-err','&times; Rate limited (429) - waiting 15s');await sleep(15000);lastCallTs=0;callsUsed--;return apiCall(path);}
   if(res.status===401||res.status===403){let t='';try{t=await res.text();}catch(e){}dlog('dl-err','&times; Auth error '+res.status+': '+t.slice(0,80));throw new Error('API key rejected (HTTP '+res.status+')'+(t?': '+t.slice(0,150):''));}
   if(!res.ok){let t='';try{t=await res.text();}catch(e){}dlog('dl-err','&times; HTTP '+res.status+': '+t.slice(0,100));throw new Error('HTTP '+res.status+(t?': '+t.slice(0,200):''));}
   dlog('dl-ok','&check; '+res.status+' OK');
