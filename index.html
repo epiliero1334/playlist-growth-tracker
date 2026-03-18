@@ -172,7 +172,7 @@ td{padding:9px 14px;vertical-align:middle;}
   </div>
   <div class="field">
     <label>Target Results</label>
-    <input type="number" id="targetResults" value="500" min="1" max="9999" style="width:80px;">
+    <input type="number" id="targetResults" value="10" min="1" max="9999" style="width:80px;">
   </div>
   <div class="field">
     <label>Max Age (days)</label>
@@ -188,7 +188,7 @@ td{padding:9px 14px;vertical-align:middle;}
   </div>
   <div class="field">
     <label>Budget (calls)</label>
-    <input type="number" id="budget" value="1500" min="10" max="9999" style="width:110px;">
+    <input type="number" id="budget" value="100" min="10" max="9999" style="width:110px;">
   </div>
   <button class="run-btn" id="runBtn" onclick="run()">&#9654; Run</button>
   <button class="csv-btn" id="csvBtn" onclick="exportCSV()" disabled>&#8595; CSV</button>
@@ -315,7 +315,7 @@ async function apiCall(path){
   if(callsUsed>=budgetLimit)throw new Error('Budget limit of '+budgetLimit+' calls reached.');
   const gap=2000-(Date.now()-lastCallTs);if(gap>0)await sleep(gap);
   lastCallTs=Date.now();
-  const key=document.getElementById('apiKey').value.trim();
+  const key=document.getElementById('apiKey').value.trim().replace(/[^\x00-\xff]/g,'');
   dlog('dl-call','&rarr; GET '+path);
   let res;
   try{res=await fetch(BASE+path,{headers:{'x-api-key':key,'Accept':'application/json'}});}
