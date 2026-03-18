@@ -138,7 +138,7 @@ td{padding:9px 14px;vertical-align:middle;}
   </div>
   <div class="field">
     <label>Min Growth / Day</label>
-    <input type="number" id="minGrowth" value="10" min="0" style="width:80px;">
+    <input type="number" id="minGrowth" value="1" min="0" style="width:80px;">
   </div>
   <div class="field">
     <label>Max Growth / Day</label>
@@ -154,11 +154,11 @@ td{padding:9px 14px;vertical-align:middle;}
   </div>
   <div class="field">
     <label>Min Followers</label>
-    <input type="number" id="minFollowers" value="100" min="0" style="width:100px;" placeholder="e.g. 100">
+    <input type="number" id="minFollowers" value="0" min="0" style="width:100px;" placeholder="e.g. 100">
   </div>
   <div class="field">
     <label>Max Followers</label>
-    <input type="number" id="maxFollowers" value="2000" min="1" style="width:100px;" placeholder="e.g. 2000">
+    <input type="number" id="maxFollowers" value="50000" min="1" style="width:100px;" placeholder="e.g. 2000">
   </div>
   <div class="field">
     <label>Budget (calls)</label>
@@ -281,7 +281,7 @@ function isSpotifyOwned(r){
   const ownerId=(r.ownerData?.spotifyId||r.owner?.id||r.owner_id||'').toLowerCase();
   const ownerName=(r.ownerData?.name||r.owner?.display_name||r.owner?.name||r.owner_name||'').toLowerCase();
   const id=r.spotifyId||r.id||'';
-  return ownerId==='spotify'||ownerName==='spotify'||id.startsWith('37i9dQZF1D');
+  return id.startsWith('37i9dQZF1D');
 }
 function isAllowedLanguage(r){
   const text=(r.name||'')+(r.description||'');
@@ -350,7 +350,6 @@ async function fetchAll(maxG=Infinity,target=500,maxAgeDays=Infinity,maxFollower
     if(!items.length)break;
     for(const raw of items){
       if(isSpotifyOwned(raw))continue;
-      if(!isAllowedLanguage(raw))continue;
       const id=raw.spotifyId||raw.id||null;
       if(id&&seen.has(id))continue;
       if(id)seen.add(id);
